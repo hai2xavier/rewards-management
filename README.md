@@ -1,8 +1,6 @@
-**                    Rewards Management Application:
-**
+**Rewards Management Application**
 
-**Pre-requisites to run the application:
-**
+**Pre-requisites to run the application:**
 
 1. Jdk 17 & above
 2. Maven 3.8 & above
@@ -10,11 +8,11 @@
 
 **Steps to run the application:**
 
-1. Run mvn clean install
+1. Run 'mvn clean install' on the project root folder
 2. Run RewardsManagementApplication
 
-**Sample Request: 
-**
+**Sample Request:**
+
 http://localhost:8080/customers/1000000003/rewards
 
 **Sample Response:**
@@ -29,12 +27,11 @@ http://localhost:8080/customers/1000000003/rewards
   "totalRewards" : 2318
 }
 
-**Open-API URL:
-**
+**Swagger URL:**
 
 http://localhost:8080/swagger-ui/index.html#
 
-**H2 Console:
-**
+**H2 Console login:**
+
 http://localhost:8080/h2-ui/login.do
 
