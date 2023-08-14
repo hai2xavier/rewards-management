@@ -9,11 +9,11 @@
 **Steps to run the application:**
 
 1. Run 'mvn clean install' on the project root folder
-2. Run RewardsManagementApplication
+2. Once the above command is successful, Run RewardsManagementApplication
 
 **Sample Request:**
 
-http://localhost:8080/customers/1000000003/rewards
+http://localhost:8080/api/v1/customers/1000000003/rewards
 
 **Sample Response:**
 

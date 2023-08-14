@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 @Transactional
 public interface OrderRepository extends CrudRepository<Order,Long> {
-    public List<Order> findAllByCustomerId(Long customerId);
 
     public List<Order> findAllByCustomerIdAndTransactionDateBetween(Long customerId, Timestamp from, Timestamp to);
 }

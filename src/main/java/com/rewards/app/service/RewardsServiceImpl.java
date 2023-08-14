@@ -35,17 +35,17 @@ public class RewardsServiceImpl implements RewardsService {
 
 		// Time range for calculation
 		Timestamp previousMonth = getDateBasedOnOffSetDays(RewardsConstants.DAYS_OF_MONTH);
-		Timestamp previousTwoMonths = getDateBasedOnOffSetDays(RewardsConstants.TWO_MONTHS * RewardsConstants.DAYS_OF_MONTH);
-		Timestamp previousThreeMonths = getDateBasedOnOffSetDays(RewardsConstants.THREE_MONTHS * RewardsConstants.DAYS_OF_MONTH);
+		Timestamp previousSecondMonth = getDateBasedOnOffSetDays(RewardsConstants.TWO_MONTHS * RewardsConstants.DAYS_OF_MONTH);
+		Timestamp previousThirdMonth = getDateBasedOnOffSetDays(RewardsConstants.THREE_MONTHS * RewardsConstants.DAYS_OF_MONTH);
 
 		// Getting the list of orders for past three months from database
 		List<Order> previousMonthOrders = orderRepository.findAllByCustomerIdAndTransactionDateBetween(
 				customerId, previousMonth, Timestamp.from(Instant.now()));
 		List<Order> previousSecondMonthOrders = orderRepository
-				.findAllByCustomerIdAndTransactionDateBetween(customerId, previousTwoMonths, previousMonth);
+				.findAllByCustomerIdAndTransactionDateBetween(customerId, previousSecondMonth, previousMonth);
 		List<Order> previousThirdMonthOrders = orderRepository
-				.findAllByCustomerIdAndTransactionDateBetween(customerId, previousThreeMonths,
-						previousTwoMonths);
+				.findAllByCustomerIdAndTransactionDateBetween(customerId, previousThirdMonth,
+						previousSecondMonth);
 
 		// Getting the reward points for past three months
 		Long previousMonthRewardPoints = getRewardsPerMonth(previousMonthOrders);

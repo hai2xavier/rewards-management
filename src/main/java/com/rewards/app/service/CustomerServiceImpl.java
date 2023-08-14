@@ -17,7 +17,7 @@ public class CustomerServiceImpl implements CustomerService {
 	 * @param customerId
 	 * @return Customer
 	 */
-	public Customer getCustomerId(Long customerId) {
+	public Customer getCustomerDetails(Long customerId) {
 		// Getting the customer details
 		Customer customer = customerRepository.findByCustomerId(customerId);
 		return customer;

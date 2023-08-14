@@ -26,7 +26,7 @@ import java.util.Objects;
 
 @Tag(name = "Rewards Management", description = "Rewards Management APIs")
 @RestController
-@RequestMapping("/customers")
+@RequestMapping("/api/v1/customers")
 public class RewardsManagementController {
 
     @Autowired
@@ -37,8 +37,7 @@ public class RewardsManagementController {
 
     @Operation(
             summary = "Retrieve rewards by Customer Id",
-            description = "This method gets the reward points for the given customer id",
-            tags = { "rewards"})
+            description = "This method gets the reward points for the given customer id")
     @ApiResponses({
             @ApiResponse(responseCode = HttpConstants.OK, content = { @Content(schema = @Schema(implementation = Rewards.class), mediaType = MediaType.APPLICATION_JSON_VALUE) }),
             @ApiResponse(responseCode = HttpConstants.NOT_FOUND, description = "Customer data not available", content = { @Content(schema = @Schema(implementation = String.class), mediaType = MediaType.APPLICATION_JSON_VALUE)}),
@@ -46,7 +45,7 @@ public class RewardsManagementController {
             @ApiResponse(responseCode = HttpConstants.NO_CONTENT, description = "Reward data not available", content = { @Content(schema = @Schema(implementation = String.class), mediaType = MediaType.APPLICATION_JSON_VALUE) }) })
     @GetMapping(value = "/{customerId}/rewards",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Rewards> getCustomerRewards(@PathVariable("customerId") Long customerId){
-        Customer customer = customerService.getCustomerId(customerId);
+        Customer customer = customerService.getCustomerDetails(customerId);
         if(Objects.isNull(customer)) {
             throw new CustomerNotFoundException();
         }

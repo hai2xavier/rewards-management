@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
-public class RewardsManagementExceptionController {
+public class RewardsManagementExceptionHandler {
 
     @ExceptionHandler(value = CustomerNotFoundException.class)
     public ResponseEntity<Object> handleCustomerNotFoundException(CustomerNotFoundException exception) {
